@@ -2,6 +2,7 @@
 - [Default configuration](#default-organizer-configuration)
 - [Features](#organizer-features)
 - [Running](#running-organizer)
+- [Donate](#donate)
 
 General use file organizer for removing all but the wanted file extentions, moving files out of subfolders and deleting empty folders.
 Default file is set up for using with Plex for cleaning up torrent downloads (movies and tv shows), but extentions can simply be changed in the python script.
