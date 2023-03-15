@@ -92,6 +92,6 @@ Dir from organizer.py <path_to_folder>
 
 ### Running organizer
 
-* Download with `sudo wget https://raw.githubusercontent.com/Toomas633/Scripts/main/organizer.py` and place it into the folder you want it to search through (see example above)
+* Download with `sudo wget https://raw.githubusercontent.com/Toomas633/File-organizer/main/organizer.py` and place it into the folder you want it to search through (see example above)
   * Run it in the backround while being in the same folder with `nohup python3 organizer.py <path_to_folder>`
   * Or run it always after reboot with cron job by adding `0 * * * * python3 /<path_to_script>/organizer.py <path_to_folder>` using `sudo crontab -e` and adding it to the end of the file
