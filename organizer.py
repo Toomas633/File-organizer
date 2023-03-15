@@ -42,23 +42,24 @@ def empty(rootDir):
                 shutil.rmtree(full_path)
                 logging.info('Empty folder ' + dir + ' deleted in ' + root)
 
-try:
-    # get working directory from command line argument
-    home = sys.argv[1]
-    # Write status to log file
-    logging.basicConfig(filename=home+'/organizer.log', level=logging.INFO, format='%(asctime)s %(message)s')
-    logging.info('------------------------------ Starting ------------------------------')
-    # set /movies as working dir and run
-    rootDir = home + '/movies'
-    remover(rootDir)
-    mover(rootDir)
-    empty(rootDir)
-    # set /tv as working dir and run
-    rootDir = home + '/tv'
-    remover(rootDir)
-    mover(rootDir)
-    empty(rootDir)
-except Exception as e:
-    logging.exception(e)
-    
-logging.info('-------------------------------- Done --------------------------------')
+if __name__ == "__main__":
+    try:
+        # get working directory from command line argument
+        home = sys.argv[1]
+        # Write status to log file
+        logging.basicConfig(filename=home+'/organizer.log', level=logging.INFO, format='%(asctime)s %(message)s')
+        logging.info('------------------------------ Starting ------------------------------')
+        # set /movies as working dir and run
+        rootDir = home + '/movies'
+        remover(rootDir)
+        mover(rootDir)
+        empty(rootDir)
+        # set /tv as working dir and run
+        rootDir = home + '/tv'
+        remover(rootDir)
+        mover(rootDir)
+        empty(rootDir)
+    except Exception as e:
+        logging.exception(e)
+        
+    logging.info('-------------------------------- Done --------------------------------')
