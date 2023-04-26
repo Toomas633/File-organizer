@@ -98,9 +98,4 @@ Dir from organizer.py <path_to_folder>
   * Or run it always after reboot with cron job by adding `0 * * * * python3 /<path_to_script>/organizer.py <path_to_folder>` using `sudo crontab -e` and adding it to the end of the file
 
 ## Donate
-
-Monero: `46b9jWCbtfDEGibADKG5uqL12r8RDohm1ZjkSK2ZW3T3gTsUYSPGpvu5fvhJZjuBGRbN8HnKWc8T6RFvzuUxTQjFF5osdeP`
-
-Bitcoin: `3NPFV9ivECdSgyCXeNk4h5Gm3q1xiDRnPV`
-
-More options on https://toomas633.com/donate/
+[toomas633.com/donate](https://toomas633.com/donate/)
