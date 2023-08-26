@@ -1,3 +1,5 @@
+<img align="right" src="https://sonarcloud.io/images/project_badges/sonarcloud-white.svg">
+
 # File organizer
 - [Default configuration](#default-organizer-configuration)
 - [Features](#organizer-features)
