@@ -2,7 +2,20 @@ import os
 import shutil
 import logging
 import sys
-   
+import datetime
+
+def clear_log(log_file_path):
+    cutoff_date = datetime.datetime.now() - datetime.timedelta(days=30)
+
+    with open(log_file_path, "r") as file:
+        lines = file.readlines()
+
+    filtered_lines = [line for line in lines if line.startswith("[")]
+    filtered_lines = [line for line in filtered_lines if datetime.datetime.strptime(line.split(']')[0][1:], '%Y-%m-%d %H:%M:%S,%f') >= cutoff_date]
+
+    with open(log_file_path, "w") as file:
+        file.writelines(filtered_lines)
+        
 def remover(rootDir):
     # Command-line argument was provided
     for dirName, subdirList, fileList in os.walk(rootDir):
@@ -47,7 +60,7 @@ if __name__ == "__main__":
         # get working directory from command line argument
         home = sys.argv[1]
         # Write status to log file
-        logging.basicConfig(filename=home+'/organizer.log', level=logging.INFO, format='%(asctime)s %(message)s')
+        logging.basicConfig(filename=home+'/organizer.log', level=logging.INFO, format='[%(asctime)s] - %(levelname)s: %(message)s')
         logging.info('------------------------------ Starting ------------------------------')
         # set /movies as working dir and run
         rootDir = home + '/movies'
@@ -59,6 +72,8 @@ if __name__ == "__main__":
         remover(rootDir)
         mover(rootDir)
         empty(rootDir)
+        # clear 30 day old log entries
+        clear_log(home+'/organizer.log')
     except Exception as e:
         logging.exception(e)
         
