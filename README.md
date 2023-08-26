@@ -1,4 +1,4 @@
-<img align="right" src="https://sonarcloud.io/images/project_badges/sonarcloud-white.svg">
+<img align="right" src="https://sonarcloud.io/api/project_badges/quality_gate?project=Toomas633_File-organizer">
 
 # File organizer
 - [Default configuration](#default-organizer-configuration)
