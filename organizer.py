@@ -18,7 +18,7 @@ def clear_log(log_file_path):
         
 def remover(root_dir):
     # Command-line argument was provided
-    for dir_name, subdir_list, file_list in os.walk(rootDir):
+    for dir_name, subdir_list, file_list in os.walk(root_dir):
         # loop through each file
         for fname in file_list:
             # if the file is a certain type, keep it
