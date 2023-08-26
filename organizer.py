@@ -16,21 +16,21 @@ def clear_log(log_file_path):
     with open(log_file_path, "w") as file:
         file.writelines(filtered_lines)
         
-def remover(rootDir):
+def remover(root_dir):
     # Command-line argument was provided
-    for dirName, subdirList, fileList in os.walk(rootDir):
+    for dir_name, subdir_list, file_list in os.walk(rootDir):
         # loop through each file
-        for fname in fileList:
+        for fname in file_list:
             # if the file is a certain type, keep it
             if fname.endswith('.mkv') or fname.endswith('.mp4') or fname.endswith('.srt') or fname.endswith('.!qB'):
                 continue
             # otherwise, delete it
-            os.remove(os.path.join(dirName, fname))
-            logging.info('File ' + fname + ' deleted in ' + dirName)
+            os.remove(os.path.join(dir_name, fname))
+            logging.info('File ' + fname + ' deleted in ' + dir_name)
             
-def mover(rootDir):
+def mover(root_dir):
     # Walk through the path
-    for root, dirs, files in os.walk(rootDir):
+    for root, dirs, files in os.walk(root_dir):
         # loop through each file
         for file in files:
             # if there is a .mkv file
@@ -43,9 +43,9 @@ def mover(rootDir):
                         shutil.move(os.path.join(root, subdir, file[:-4] + ".srt"), root)
                         logging.info('Sub file ' + os.path.join(file[:-4] + ".srt") +  ' moved in ' + os.path.join(root, subdir))
 
-def empty(rootDir):
+def empty(root_dir):
     # Walk through the path
-    for root, dirs, files in os.walk(rootDir):
+    for root, dirs, files in os.walk(root_dir):
         # walk through subfolders
         for dir in dirs:
             # generate directory path
@@ -63,15 +63,15 @@ if __name__ == "__main__":
         logging.basicConfig(filename=home+'/organizer.log', level=logging.INFO, format='[%(asctime)s] - %(levelname)s: %(message)s')
         logging.info('------------------------------ Starting ------------------------------')
         # set /movies as working dir and run
-        rootDir = home + '/movies'
-        remover(rootDir)
-        mover(rootDir)
-        empty(rootDir)
+        root_dir = home + '/movies'
+        remover(root_dir)
+        mover(root_dir)
+        empty(root_dir)
         # set /tv as working dir and run
-        rootDir = home + '/tv'
-        remover(rootDir)
-        mover(rootDir)
-        empty(rootDir)
+        root_dir = home + '/tv'
+        remover(root_dir)
+        mover(root_dir)
+        empty(root_dir)
         # clear 30 day old log entries
         clear_log(home+'/organizer.log')
     except Exception as e:
